@@ -25,7 +25,9 @@ class _SignInPageState extends State<SignInPage>{
           child:Column(
             mainAxisAlignment:MainAxisAlignment.center,
             children:[
+              //instagram
               Text('Instagram',style:TextStyle(fontFamily:'Billabong',fontSize:45),),
+              //email
               Container(
                 height:48,
                 margin:EdgeInsets.only(left:20,right:20,top:15),
@@ -43,6 +45,7 @@ class _SignInPageState extends State<SignInPage>{
                   ),
                 ),
               ),
+              //password
               Container(
                 height:48,
                 margin:EdgeInsets.only(left: 20,right:20,top:15),
@@ -61,6 +64,7 @@ class _SignInPageState extends State<SignInPage>{
                   ),
                 ),
               ),
+              //button
               Container(
                 height:48,
                 margin:EdgeInsets.only(left: 20,right: 20,top:15,),
@@ -74,6 +78,7 @@ class _SignInPageState extends State<SignInPage>{
                   ),
                 ),
               ),
+              //row
               Container(
                 height: 48,
                 margin: EdgeInsets.only(left: 20,right: 20,top:15,),
