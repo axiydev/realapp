@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:realapp/pages/signup_page.dart';
 import 'package:realapp/pages/home_page.dart';
-import 'package:realapp/animtions/animation_page.dart';
+import 'package:realapp/animations/animation_page.dart';
 class SignInPage extends StatefulWidget{
   static final String id="sign_in_page";
   @override
