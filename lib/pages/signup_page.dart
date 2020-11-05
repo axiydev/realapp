@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:realapp/pages/sign_in_page.dart';
 import 'package:realapp/pages/home_page.dart';
+import 'package:realapp/animtions/animation_page.dart';
 class SignUpPage extends StatefulWidget{
   static final String id='signup_page';
   @override
   _SignUpPageState createState()=>_SignUpPageState();
 }
-class _SignUpPageState extends State<SignUpPage>{
+class _SignUpPageState extends State<SignUpPage> with SingleTickerProviderStateMixin{
+  AnimationController _scaleController;
+  Animation<double> _scaleAnimation;
+
   TextEditingController _nameController=new TextEditingController();
   TextEditingController _emailController =new TextEditingController();
   TextEditingController _passwordController=new TextEditingController();
@@ -19,6 +23,15 @@ class _SignUpPageState extends State<SignUpPage>{
     }
   }
   @override
+  void initState(){
+    super.initState();
+    _scaleController=AnimationController(vsync:this,duration:Duration(milliseconds:300,),);
+    _scaleAnimation=Tween(begin:1.0,end:30.0).animate(_scaleController)..addStatusListener((AnimationStatus status){
+      if(status==AnimationStatus.completed){
+      }
+    });
+  }
+  @override
   Widget build(BuildContext context){
     return Scaffold(
       body:Center(
@@ -28,8 +41,8 @@ class _SignUpPageState extends State<SignUpPage>{
             mainAxisAlignment:MainAxisAlignment.center,
             children:[
               //instagram
-              Text('Instagram',style:TextStyle(fontFamily:'Billabong',fontSize:45),),
-              Container(
+              FadeAnimation(1,Text('Instagram',style:TextStyle(fontFamily:'Billabong',fontSize:45),)),
+              FadeAnimation(1.1,Container(
                 height:48,
                 margin:EdgeInsets.only(left:20,right:20,top:15),
                 decoration:BoxDecoration(
@@ -45,9 +58,9 @@ class _SignUpPageState extends State<SignUpPage>{
                     border:OutlineInputBorder(borderSide: BorderSide(color:Colors.teal),),
                   ),
                 ),
-              ),
+              )),
               //email
-              Container(
+              FadeAnimation(1.2,Container(
                 height:48,
                 margin:EdgeInsets.only(left:20,right:20,top:15),
                 decoration:BoxDecoration(
@@ -63,9 +76,9 @@ class _SignUpPageState extends State<SignUpPage>{
                     border:OutlineInputBorder(borderSide: BorderSide(color:Colors.teal),),
                   ),
                 ),
-              ),
+              )),
               //password
-              Container(
+              FadeAnimation(1.3,Container(
                 height:48,
                 margin:EdgeInsets.only(left: 20,right:20,top:15),
                 decoration:BoxDecoration(
@@ -82,9 +95,9 @@ class _SignUpPageState extends State<SignUpPage>{
                     border:OutlineInputBorder(borderSide:BorderSide(color:Colors.teal,)),
                   ),
                 ),
-              ),
+              )),
               //button
-              Container(
+              FadeAnimation(1.4,Container(
                 height:48,
                 margin:EdgeInsets.only(left: 20,right: 20,top:15,),
                 width:double.infinity,
@@ -96,9 +109,9 @@ class _SignUpPageState extends State<SignUpPage>{
                     borderRadius:BorderRadius.circular(5),
                   ),
                 ),
-              ),
+              )),
               //row
-              Container(
+              FadeAnimation(1.5,Container(
                 height: 48,
                 margin: EdgeInsets.only(left: 20,right: 20,top:15,),
                 child:Row(
@@ -114,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage>{
                     ),
                   ],
                 ),
-              ),
+              )),
             ],
           ),
         ),
